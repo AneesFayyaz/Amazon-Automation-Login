@@ -1,68 +1,65 @@
-# Amazon-Automation-Login
-This project automates the process of logging into Amazon using Selenium and extracting OTP from emails using IMAP. It performs specific actions on Amazon Music once logged in.
+# Amazon Music Login Automation
 
-**Features**
+## Overview
+This project automates the login process for Amazon Music, including OTP (One-Time Password) verification sent via email. It uses Python, Selenium for web automation, and IMAP for email handling.
 
-    Automated Login: Automates the login process for Amazon using Selenium WebDriver.
-    OTP Extraction: Extracts OTP from Gmail using IMAP and verifies it for logging in.
-    Profile Management: Manages multiple user profiles for separate sessions.
-    Error Handling: Comprehensive error handling for various stages of the login process.
-    Reusable Components: Modular functions for email handling, password input, OTP input, and button interactions.
+## Features
+- Automates the login process to Amazon Music.
+- Handles OTP verification via email.
+- Uses Selenium for web automation.
+- Uses IMAP to fetch OTP from Gmail.
 
-**Prerequisites**
+## Requirements
+- Python 3.x
+- Selenium
+- imaplib
+- email
+- re
+- chromedriver-autoinstaller
 
-    Python 3.x
-    Google Chrome
-    ChromeDriver
-    Selenium
-    IMAPLib
-    email
-    time
-    re
-    os
+## Installation
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/amazon-music-login-automation.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd amazon-music-login-automation
+    ```
+3. Install the required packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-**Usage**
-
-Prepare Email Credentials File
-
-    Create a file named accounts.txt in the format:
-    email1:password1:app-specific-password1
-    email2:password2:app-specific-password2
-
-Run the Script
-
+## Usage
+1. Ensure you have Google Chrome installed.
+2. Prepare a text file `accounts.txt` with your email credentials in the following format:
+    ```
+    email_address:password:user_password
+    ```
+3. Run the script:
+    ```sh
     python amazon_login.py
+    ```
 
-**Code Overview**
+## Code Structure
+- `amazon_login.py`: The main script that runs the automation.
+- `requirements.txt`: List of required packages.
 
-Functions
+## Configuration
+- The script reads credentials from a file named `accounts.txt`. Ensure the file is in the format:
+    ```
+    email_address:password:user_password
+    ```
+- The script uses a profile directory for each login attempt to maintain session data.
 
-    get_otp(useremail, userpassword): Fetches OTP from Gmail.
-    profile(index): Manages user profile directories.
-    email_func(driver, email_data): Inputs email into Amazon login form.
-    pass_func(driver, password_data): Inputs password into Amazon login form.
-    signin_button(driver): Clicks on the sign-in button.
-    read_credentials(file_path): Reads credentials from a file.
-    otp_func(driver, otp): Inputs OTP into Amazon verification form.
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-Main Execution
 
-    Reads credentials from accounts.txt.
-    Iterates over each set of credentials.
-    Manages user profiles.
-    Performs login actions including email and password input, OTP extraction, and verification.
 
-Contributing
+## Acknowledgements
+- This project uses the [Selenium](https://selenium.dev/) library for web automation.
+- IMAP is used for email handling.
 
-    Fork the repository.
-    Create your feature branch (git checkout -b feature/your-feature).
-    Commit your changes (git commit -m 'Add your feature').
-    Push to the branch (git push origin feature/your-feature).
-    Open a pull request.
-Acknowledgements
 
-    Selenium
-    IMAPLib
-    Python Community
-
-Feel free to contribute, raise issues, or suggest features!
